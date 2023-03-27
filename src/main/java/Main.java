@@ -6,12 +6,20 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) {
         BufferedReader reader=null;
+        int total = 0;
         try {
            reader = new BufferedReader(new FileReader("/Users/nevzat/Documents/FileDemo/src/main/java/numbers.txt"));
+           String line = null;
+           while((line= reader.readLine()) != null){
+               total += Integer.valueOf(line);
+           }
+            System.out.println("Total :" + total);
+
         } catch (FileNotFoundException e) {
            e.printStackTrace();
-        }
-        finally{
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally{
             try{
                 reader.close();
             }
